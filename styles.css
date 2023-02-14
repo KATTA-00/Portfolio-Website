@@ -286,3 +286,10 @@ nav {
         z-index: 2;
     }
 }
+
+/* My Work */
+
+.my-work {
+    background-color: var(--clr-dark);
+
+}
