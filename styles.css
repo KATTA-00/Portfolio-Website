@@ -1,0 +1,288 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*Custom poperty*/
+:root {
+    --ff-primary: 'Arial';
+    --ff-second: 'Arial';
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #383838;
+    --clr-accent: #16e0bd;
+
+    --fs-h1: 2rem;
+    --fs-h2: 2.2rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25);
+
+}
+
+@media (min-width: 800px) {
+
+    :root {
+        --fs-h1: 2rem;
+        --fs-h2: 2.3rem;
+        --fs-h3: 1.2rem;
+        --fs-body: 1.5rem;
+    }
+}
+
+/*Genaral styles*/
+body {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 150%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 1000ms ease-in-out;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--fs-h1)
+}
+
+h2 {
+    font-size: var(--fs-h2)
+}
+
+h3 {
+    font-size: var(--fs-h3)
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+.section__title {
+    margin-bottom: 0.25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background-color: var(--clr-accent);
+    font-family: var(--ff-second);
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+}
+
+
+/*header*/
+
+nav {
+    display: none;
+}
+
+/* Intro section */
+
+.intro {
+    position: relative;
+
+}
+
+.intro__img {
+    box-shadow: var(--bs);
+}
+
+.section__subtitle--intro {
+    display: inline-block;
+}
+
+@media (min-width: 600px) {
+
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 5em;
+        grid-template-areas:
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content;
+    }
+
+    .intro__img {
+        grid-area: img;
+        min-width: 300px;
+        position: relative;
+
+    }
+
+    .section__title--intro {
+        grid-area: title;
+        width: 200px;
+        vertical-align: auto;
+        line-height: 1.5em;
+
+    }
+
+    .section__subtitle--intro {
+        grid-area: subtitle align-self;
+        grid-column: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -2em;
+        height: 50px;
+        width: calc(100% + 1.5em);
+    }
+}
+
+/* My Services */
+
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url(Images/christopher-gower-m_HRfLhgABo-unsplash.png);
+    color: var(--clr-light);
+    background-size: cover;
+    text-align: center;
+    font-size: 1rem;
+    /* background-blend-mode: multiply; */
+}
+
+.section__title--services {
+    color: var(--clr-accent);
+    position: relative;
+
+}
+
+.section__title--services::after {
+    content: '';
+    display: block;
+    width: 3em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    opacity: 0.5;
+}
+
+.services {
+    margin-bottom: 3em;
+}
+
+.service {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media(min-width: 800px) {
+    .services {
+        display: flex;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .service+.service {
+        margin-left: 2em;
+
+    }
+}
+
+
+/* about me */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas:
+            "title img"
+            "subtitle img"
+            "text img"
+        ;
+        text-align: center;
+        max-width: 1000px;
+    }
+
+    .section__title--about {
+        grid-area: title;
+        text-align: left;
+
+    }
+
+    .section__subtitle--about {
+        grid-area: subtitle;
+        grid-column: 1/-1;
+        grid-row: 2;
+        position: relative;
+        left: -2em;
+        width: calc(100% + 3em);
+        padding-left: 2em;
+        margin-left: 0.5em;
+        padding-right: calc(200px + 4em);
+        height: fit-content;
+    }
+
+    .about-me-img {
+        grid-area: img;
+        width: 200px;
+        z-index: 2;
+    }
+}
